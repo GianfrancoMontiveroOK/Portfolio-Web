@@ -1,0 +1,219 @@
+@media (min-width: 300px) {
+    .hero1{
+        height: 70vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero2{
+        height:84vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero1 .hero1item{
+       align-items: center;
+    }
+    
+    .hero2 .hero2item{
+       align-items: center;
+       
+    }
+    
+    .hero2 .cardskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        color: white;
+      
+    }
+    
+    
+    .hero2 .cardskills .contentskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    
+    
+    .banner{
+        
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        background-repeat: space;
+        background-size: contain;
+        background-position: center;
+    }    
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 800px) {
+ 
+    .hero1{
+        height: 70vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero2{
+        height:84vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero1 .hero1item{
+       align-items: center;
+    }
+    
+    .hero2 .hero2item{
+       align-items: center;
+       
+    }
+    
+    .hero2 .cardskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        color: white;
+      
+    }
+    
+    
+    .hero2 .cardskills .contentskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    
+    
+    .banner{
+        
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        background-repeat: space;
+        background-size: contain;
+        background-position: center;
+    }
+ 
+}
+
+@media (min-width: 1500px) {
+ 
+    .hero1{
+        height: 70vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero2{
+        height:127vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }    
+    
+    .hero1 .hero1item{
+       align-items: center;
+       backdrop-filter: blur(3px);
+       margin: 60px;
+       padding: 15px;
+    
+    }
+    
+    .hero2 .hero2item{
+       align-items: center;
+       margin-bottom: 130px;  
+       
+    }
+    
+    .hero2 .cardskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+        color: white;
+        margin: 10vh;
+        padding: 10vh;
+    
+    }
+    
+    
+    .hero2 .cardskills .contentskills{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2vh;
+    }
+    
+    
+    
+    .banner{
+        
+        height: 5vh;
+        display: flex;
+        justify-content: center;
+        background-repeat: space;
+        background-size: contain;
+        background-position: center;
+    }
+ 
+}
+
+
+
+
+
+
+
+
+
