@@ -9,6 +9,7 @@ import About from "./components/About";
 import {createTheme, ThemeProvider} from '@mui/material/styles'
 import Proyects from "./components/Proyects";
 import Footer from "./components/Footer";
+import { Helmet } from 'react-helmet';
 
 const theme = createTheme({
   palette:{
@@ -27,7 +28,11 @@ const theme = createTheme({
 
 export default function App() {
   return (
+    
     <ThemeProvider theme={theme}>
+      <Helmet>
+        <title>Gianfranco Montivero</title>
+      </Helmet>
     <BrowserRouter>
       <Navbar />
         <Routes>
