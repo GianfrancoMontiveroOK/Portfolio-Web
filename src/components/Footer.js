@@ -39,7 +39,7 @@ export default function Footer() {
               Copy
             </Button>
           </CopyToClipboard>
-          <Typography>{email}</Typography>
+          <Typography>@gmail.com</Typography>
         </Box>
         <Box className="footerlinks">
           <Button onClick={handleLinkedInButtonClick}>

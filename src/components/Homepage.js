@@ -22,7 +22,7 @@ export default function Homepage() {
         <Grid item xs={12} sm={10} mb={6}>
           <br></br>
           <Box  className="hero1item">
-            <Typography align="center" variant="h3">
+            <Typography align="center" variant="h4">
               ¡Hola! Soy Gianfranco
             </Typography>
             <Typography align="center" variant="body1">

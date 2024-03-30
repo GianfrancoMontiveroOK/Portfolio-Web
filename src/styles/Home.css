@@ -1,4 +1,4 @@
-@media (min-width: 400px) {
+@media (min-width: 300px) {
     .hero1{
         height: 70vh;
         display: flex;
@@ -23,6 +23,7 @@
     
     .hero1 .hero1item{
        align-items: center;
+       margin-top: 6vh;
     }
     
     .hero2 .hero2item{
@@ -38,7 +39,7 @@
         background-color: transparent;
         backdrop-filter: blur(10px);
         color: white;
-        padding: 2vh;
+        padding: 5vh;
       
     }
     
