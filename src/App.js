@@ -5,8 +5,10 @@ import './styles/Home.css'
 
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
+import About from "./components/About";
 import {createTheme, ThemeProvider} from '@mui/material/styles'
 import Proyects from "./components/Proyects";
+import Footer from "./components/Footer";
 
 const theme = createTheme({
   palette:{
@@ -31,8 +33,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/proyects" element={<Proyects />} />
+          <Route path="/about" element={<About />} />
+
 
         </Routes>
+        <Footer></Footer>
         
     </BrowserRouter>
     </ThemeProvider>

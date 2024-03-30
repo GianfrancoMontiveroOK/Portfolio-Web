@@ -1,4 +1,43 @@
-.ProyectPage{
+
+@media (min-width: 400px){
+    .ProyectPage{
+        display: flex;
+       
+    
+    }
+    
+    .ProyectCard{
+        margin-top: 10vh;
+    }
+    
+    .ProyectBox{
+        
+        
+    }
+
+}
+
+@media (min-width: 1000px) {
+    .ProyectPage{
+        display: flex;
+       
+    
+    }
+    
+    .ProyectCard{
+        margin: 5vh;
+    }
+    
+    .ProyectBox{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+}
+
+@media (min-width: 1200px) {
+  .ProyectPage{
     display: flex;
     margin: 20vh;
    
@@ -18,4 +57,6 @@
     display: flex;
     justify-content: center;
     
+}
+  
 }

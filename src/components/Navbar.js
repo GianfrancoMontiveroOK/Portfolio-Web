@@ -20,6 +20,10 @@ export default function Navbar() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const handleContactButtonClick = () => {
+    const footer = document.getElementById("footer");
+    footer.scrollIntoView({ behavior: "smooth" });
+  };
   const drawer = (
     <Box  onClick={handleDrawerToggle}>
       <Typography
@@ -44,7 +48,7 @@ export default function Navbar() {
           </Button>
         </li>
         <li>
-          <Button onClick={() => navigate("proyects")} color="secondary">
+          <Button onClick={() => navigate("about")} color="secondary">
             About me
           </Button>
         </li>
@@ -103,7 +107,7 @@ export default function Navbar() {
                 </Button>
               </li>
               <li>
-                <Button variant="text" onClick={() => navigate("proyects")} color="success">
+                <Button variant="text" onClick={() => navigate("about")} color="success">
                   About me
                 </Button>
               </li>
@@ -113,7 +117,7 @@ export default function Navbar() {
                 </Button>
               </li>
               <li>
-                <Button variant="text" color="success">Contact</Button>
+                <Button onClick={handleContactButtonClick} variant="text" color="success">Contact</Button>
               </li>
             </ul>
           </Box>

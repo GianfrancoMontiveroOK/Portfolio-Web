@@ -19,9 +19,9 @@ export default function Homepage() {
         className="hero1"
         style={{ backgroundImage: `url(${lay1})` }}
       >
-        <Grid item xs={12} sm={8} mb={4}>
+        <Grid item xs={12} sm={10} mb={6}>
           <br></br>
-          <Box className="hero1item">
+          <Box  className="hero1item">
             <Typography align="center" variant="h3">
               ¡Hola! Soy Gianfranco
             </Typography>
@@ -65,7 +65,7 @@ Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualq
           </Grid>
           <Grid item xs={12} sm={6} mb={6}>
             <br></br>
-            <Box  className="cardskills">
+            <Box border={1} className="cardskills">
               <Typography variant="h1">
                 Techs
                 <TerminalIcon color="primary" fontSize="medium"></TerminalIcon>
@@ -110,7 +110,7 @@ Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualq
                   DataBase
                 </Typography>
                 <Typography className="contentskills" variant="h6">
-                  Postgress , FireBase
+                  PostgreSQL , FireBase
                 </Typography>
               </Box>
             </Box>

@@ -1,0 +1,32 @@
+@media (min-width: 400px) {
+  .container {
+    height: 110vh;
+    display: flex;
+    background-size: cover;
+    color: white;
+  }
+
+  .contend {
+    align-items: center;
+    justify-content: center;
+    margin-top: 7vh;
+    backdrop-filter: blur(8px);
+    padding: 5vh;
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    display: flex;
+    background-size: cover;
+    color: white;
+    justify-content: center;
+  }
+
+
+  .contend {
+    margin-top: 25vh;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,22 @@
+
+.footer{
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    color: antiquewhite;
+    padding: 2vh ;
+    background-color: rgb(230, 229, 229);
+}
+
+.footeremail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+
+}
+
+.footerlinks{
+    display: flex;
+    justify-content: space-around;
+}
