@@ -10,7 +10,7 @@ import "../styles/Footer.css";
 
 export default function Footer() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const email = "example@gmail.com"; // Coloca aquí tu dirección de correo electrónico
+  const email = "montiverogianfranco2709@gmail.com";
 
   const handleLinkedInButtonClick = () => {
     window.location.href =
