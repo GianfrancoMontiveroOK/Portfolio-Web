@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 7vh;
+    margin-bottom: 15vh;
     backdrop-filter: blur(8px);
     padding: 5vh;
   }
