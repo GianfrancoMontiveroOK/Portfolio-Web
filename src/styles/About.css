@@ -1,6 +1,5 @@
 @media (min-width: 300px) {
   .container {
-    height: 185vh;
     display: flex;
     background-size: cover;
     background-repeat: no-repeat;
