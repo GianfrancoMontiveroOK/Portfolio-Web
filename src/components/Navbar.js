@@ -58,7 +58,7 @@ export default function Navbar() {
           </Button>
         </li>
         <li>
-          <Button color="secondary">Contact</Button>
+          <Button onClick={handleContactButtonClick} color="secondary">Contact</Button>
         </li>
       </ul>
     </Box>
