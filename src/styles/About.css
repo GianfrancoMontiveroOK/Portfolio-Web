@@ -1,8 +1,9 @@
 @media (min-width: 400px) {
   .container {
-    height: 110vh;
+    height: 130vh;
     display: flex;
     background-size: cover;
+    background-repeat: no-repeat;
     color: white;
   }
 
@@ -18,7 +19,6 @@
 @media (min-width: 600px) {
   .container {
     display: flex;
-    background-size: cover;
     color: white;
     justify-content: center;
   }
