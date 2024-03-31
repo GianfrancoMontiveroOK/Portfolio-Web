@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Anonymous Pro';
+    src: url('../fonts/OFL.txt') format('truetype'); /* Ajusta la ruta según la ubicación de tus archivos de fuente */
+  }
+
 @media (min-width: 300px) {
     .hero1{
         display: flex;
@@ -20,11 +25,11 @@
     }    
     
     .hero1 .hero1item{
+       font-family: 'Anonymous Pro', monospace;
        align-items: center;
-       margin-top: 6vh;
-       background-color: rgba(250, 235, 215, 0.137);
-       backdrop-filter: blur(2px);
-       margin-bottom: 5vh;
+       margin-top: 25vh;
+       margin-bottom: 20vh;
+       
     }
     
     .hero2 .hero2item{
@@ -76,7 +81,6 @@
 @media (min-width: 800px) {
  
     .hero1{
-        height: 70vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -87,7 +91,6 @@
     }    
     
     .hero2{
-        height:90vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -102,7 +105,6 @@
        margin-top: 10vh;
        margin-left: 5vh;
        margin-right: 5vh;
-       background-color: rgba(255, 255, 255, 0.226);
        backdrop-filter: blur(2px);
        padding: 5vh;
 
@@ -154,7 +156,6 @@
 @media (min-width: 1500px) {
  
     .hero1{
-        height: 70vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -165,7 +166,6 @@
     }    
     
     .hero2{
-        height:127vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -179,8 +179,7 @@
         
        align-items: center;
        backdrop-filter: blur(3px);
-       margin: 60px;
-       padding: 15px;
+       margin: 250px;
     
     }
     

@@ -19,19 +19,14 @@ export default function Homepage() {
         className="hero1"
         style={{ backgroundImage: `url(${lay1})` }}
       >
-        <Grid item xs={12} sm={10} mb={6}>
+        <Grid item xs={12} sm={10} mb={8}>
           <br></br>
-          <Box  className="hero1item">
-            <Typography align="center" variant="h4">
-              ¡Hola! Soy Gianfranco
+          <Box className="hero1item">
+            <Typography sx={{typography:{xs:'h4',sm:'h4', md:'h2'}}} align="center" >
+            &lt;Hi, im Gianfranco&gt;
             </Typography>
-            <Typography align="center" variant="body1">
-              Desarrollador Full-Stack en formación con una pasión por construir
-              aplicaciones web dinámicas y funcionales.
-
-              Aunque aún estoy en proceso de aprendizaje, estoy emocionado de enfrentar nuevos desafíos y expandir mis conocimientos en el mundo del desarrollo web. Estoy comprometido a seguir mejorando mis habilidades y aprender nuevas tecnologías para convertirme en un desarrollador Full Stack sólido y competente.
-
-Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualquier comentario o sugerencia que puedas tener. ¡Gracias por tomarte el tiempo de revisar mi portfolio!
+            <Typography  color={"primary"} align="center" variant="h4">
+              Full-Stack Dev
             </Typography>
             <Box
               sx={{ display: "flex", justifyContent: "center", marginTop: 4 }}
@@ -63,7 +58,7 @@ Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualq
               style={{ backgroundImage: `url(${lay2})` }}
             ></Box>
           </Grid>
-          <Grid item xs={12} sm={6} mb={6}>
+          <Grid item xs={12} sm={12} mb={8} lg={6} xl={6}>
             <br></br>
             <Box border={1} className="cardskills">
               <Typography variant="h1">
@@ -71,31 +66,31 @@ Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualq
                 <TerminalIcon color="primary" fontSize="medium"></TerminalIcon>
               </Typography>
 
-              <Box className="contentskills" >
+              <Box className="contentskills">
                 <Typography
                   className="contentskills"
                   color={"primary"}
-                  variant="h5"
+                  variant="h4"
                 >
                   Frontend
                 </Typography>
-                <Typography className="contentskills" variant="h6">
+                <Typography className="contentskills" variant="h7">
                   React , JavaScript, Html, Css
                 </Typography>
                 <Typography
                   className="contentskills"
                   color={"primary"}
-                  variant="h6"
+                  variant="h4"
                 >
                   Backend
                 </Typography>
-                <Typography variant="h6">
+                <Typography variant="h7">
                   NodeJS , Express , Python, JavaScript
                 </Typography>
                 <Typography
                   className="contentskills"
                   color={"primary"}
-                  variant="h6"
+                  variant="h4"
                 >
                   Frameworks
                 </Typography>
@@ -105,11 +100,11 @@ Estoy ansioso por compartir algunos de mis proyectos contigo y por recibir cualq
                 <Typography
                   className="contentskills"
                   color={"primary"}
-                  variant="h6"
+                  variant="h4"
                 >
                   DataBase
                 </Typography>
-                <Typography className="contentskills" variant="h6">
+                <Typography className="contentskills" variant="h7">
                   PostgreSQL , FireBase
                 </Typography>
               </Box>

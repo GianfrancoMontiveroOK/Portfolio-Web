@@ -1,32 +1,35 @@
+
 @media (min-width: 300px) {
   .container {
     display: flex;
-    background-size: cover;
-    background-repeat: no-repeat;
     color: white;
+    justify-content: center;
   }
-
+  
   .contend {
+    margin-top: 15vh;
     align-items: center;
     justify-content: center;
-    margin-top: 7vh;
-    margin-bottom: 15vh;
     backdrop-filter: blur(8px);
     padding: 5vh;
+    background-color: rgba(0, 0, 0, 0.623);
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
   .container {
     display: flex;
     color: white;
     justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
 
   .contend {
-    margin-top: 25vh;
     align-items: center;
     justify-content: center;
+    margin: 20vh;
+    
   }
 }

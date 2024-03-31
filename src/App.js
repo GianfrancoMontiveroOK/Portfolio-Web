@@ -6,15 +6,16 @@ import './styles/Home.css'
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
 import About from "./components/About";
-import {createTheme, ThemeProvider} from '@mui/material/styles'
 import Proyects from "./components/Proyects";
 import Footer from "./components/Footer";
+
+import {createTheme, ThemeProvider} from '@mui/material/styles'
 import { Helmet } from 'react-helmet';
 
 const theme = createTheme({
   palette:{
     primary:{
-      main:'#009697'
+      main:'#00FFCC'
     },
     secondary:{
       main: '#1a1a1a'
@@ -23,6 +24,22 @@ const theme = createTheme({
       main: '#eefffa'
     }
   },
+  typography: {
+    fontFamily: [
+      '', // Puedes cambiar 'Arial' por la fuente que desees utilizar
+      'sans-serif',
+    ].join(','),
+  },
+  breakpoints:{
+    values:{
+      xs: 200,
+      sm: 500,
+      md: 800,
+      lg: 1200,
+      xl: 1500,
+    }
+  },
+  
  
 })
 

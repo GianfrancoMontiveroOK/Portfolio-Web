@@ -9,12 +9,12 @@ export default function About() {
   return (
     <Box >
       <Grid style={{ backgroundImage: `url(${lay1})` }} className="container" container>
-        <Grid item xs={12} sm={10}>
+        <Grid item xs={12} sm={12} mb={12} xl={12}>
           <Box border={1} className="contend">
             <Typography color={"primary"} variant="h2">
               About Me
             </Typography>
-            <Typography color={"white"} variant="body1">
+            <Typography color={"white"} variant="h6">
               ¡Hola! Soy Gianfranco, un entusiasta desarrollador Full Stack en
               formación con una pasión por construir aplicaciones web dinámicas
               y funcionales. Mi viaje en el mundo del desarrollo comenzó con el

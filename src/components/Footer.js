@@ -34,20 +34,20 @@ export default function Footer() {
       <Box id="footer" className="footer">
         <Box className="footeremail">
           <CopyToClipboard text={email}>
-            <Button onClick={handleCopyButtonClick}>
-              <ContentCopyIcon fontSize="large" color="primary" />
+            <Button  color="secondary" onClick={handleCopyButtonClick}>
+              <ContentCopyIcon  fontSize="large" color="secondary" />
               Copy
             </Button>
           </CopyToClipboard>
           <Typography>@gmail.com</Typography>
         </Box>
         <Box className="footerlinks">
-          <Button onClick={handleLinkedInButtonClick}>
-            <LinkedInIcon fontSize="large" color="primary" />
+          <Button  color="secondary" onClick={handleLinkedInButtonClick}>
+            <LinkedInIcon fontSize="large" color="secondary" />
             LinkedIn
           </Button>
-          <Button onClick={handleGitHubButtonClick}>
-            <GitHubIcon fontSize="large" color="primary" />
+          <Button  color="secondary" onClick={handleGitHubButtonClick}>
+            <GitHubIcon fontSize="large" color="secondary" />
             GitHub
           </Button>
         </Box>
