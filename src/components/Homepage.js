@@ -8,9 +8,15 @@ import lay3 from "../images/background1111.png";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import TerminalIcon from "@mui/icons-material/Terminal";
 
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf";
+
 import "../styles/Home.css";
 
 export default function Homepage() {
+  const handleResumeButtonClick = () => {
+    const resume = document.getElementById("resume");
+    resume.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
       <Grid
@@ -22,23 +28,34 @@ export default function Homepage() {
         <Grid item xs={12} sm={10} mb={8}>
           <br></br>
           <Box className="hero1item">
-            <Typography sx={{typography:{xs:'h4',sm:'h4', md:'h2'}}} align="center" >
-            &lt;Hi, im Gianfranco&gt;
+            <Typography
+              sx={{ typography: { xs: "h4", sm: "h4", md: "h2" } }}
+              align="center"
+            >
+              &lt;Hi, im Gianfranco&gt;
             </Typography>
-            <Typography  color={"primary"} align="center" variant="h4">
+            <Typography color={"primary"} align="center" variant="h4">
               Full-Stack Dev
             </Typography>
             <Box
               sx={{ display: "flex", justifyContent: "center", marginTop: 4 }}
             >
               <Button
+                onClick={handleResumeButtonClick}
                 sx={{ marginRight: 2 }}
                 variant="contained"
                 color="secondary"
               >
                 Resume
               </Button>
-              <Button variant="contained" color="secondary">
+              <Button
+                href={pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                download="Gianfranco_Montivero_CV.pdf"
+                variant="contained"
+                color="secondary"
+              >
                 <FileDownloadOutlinedIcon
                   color="primary"
                   fontSize="medium"
@@ -53,6 +70,7 @@ export default function Homepage() {
         <Grid container spacing={1}>
           <Grid item xs={12} sx={12} md={12}>
             <Box
+              id="resume"
               sx={{ flexGrow: 1 }}
               className="banner"
               style={{ backgroundImage: `url(${lay2})` }}
