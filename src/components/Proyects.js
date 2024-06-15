@@ -17,6 +17,8 @@ import proyect1Image from "../images/PernImage.PNG";
 import proyect2Image from "../images/Telegram Bot.PNG";
 import proyect3Image from "../images/debug.bmp";
 import proyect4Image from "../images/skilss.jpg";
+import proyect5Image from "../images/busines.png";
+import proyect6Image from "../images/lolo.png";
 import "../styles/Proyects.css";
 
 export default function Proyects() {
@@ -34,6 +36,12 @@ export default function Proyects() {
   const handleCodeButtonClick4 = () => {
     window.location.href =
       "https://github.com/GianfrancoMontiveroOK/Portfolio-Web";
+  };
+  const handleCodeButtonClick5 = () => {
+    window.location.href = "https://webprofitlandingpage.onrender.com";
+  };
+  const handleCodeButtonClick6 = () => {
+    window.location.href = "https://loloonline.onrender.com/";
   };
   return (
     <Grid className="Proyectpage" container sx={12}>
@@ -195,22 +203,233 @@ export default function Proyects() {
                 mercados globales.
               </Typography>
               <br></br>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Python</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Cv2</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Pandas</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Numpy</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Mathplotlib</Button>
-
-
-
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Python
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Cv2
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Pandas
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Numpy
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Mathplotlib
+              </Button>
             </CardContent>
             <CardActions>
               <GitHubIcon size="small">Share</GitHubIcon>
-              <Button variant="outlined" onClick={handleCodeButtonClick3} size="small">
+              <Button
+                variant="outlined"
+                onClick={handleCodeButtonClick3}
+                size="small"
+              >
                 {" "}
                 Code
               </Button>
-              <Button variant="outlined" size="small">Live</Button>
+              <Button variant="outlined" size="small">
+                Live
+              </Button>
+            </CardActions>
+          </Card>
+          <Card className="ProyectCard" sx={{ maxWidth: 500 }}>
+            <CardHeader title="WebProfitDesign" subheader="June 10, 2024" />
+            <CardMedia
+              component="img"
+              height="185"
+              image={proyect5Image}
+              alt="PernStackImage"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Landing Page WebProfitDesign
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                La landing page de WebProfitDesign fue concebida y desarrollada
+                para reflejar nuestra misión y los servicios que ofrecemos como
+                empresa líder en soluciones web. Con un enfoque en la usabilidad
+                y el diseño moderno, esta landing page es una muestra clara de
+                nuestra capacidad para combinar funcionalidad y estética.
+              </Typography>
+              <br></br>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                React
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Material-UI
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                CSS
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Javascript
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                HTML
+              </Button>
+            </CardContent>
+            <CardActions>
+              <GitHubIcon size="small">Share</GitHubIcon>
+              <Button disabled variant="outlined" size="small">
+                {" "}
+                Code
+              </Button>
+
+              <Button
+                onClick={handleCodeButtonClick5}
+                variant="outlined"
+                size="small"
+              >
+                Live
+              </Button>
+            </CardActions>
+          </Card>
+        </Box>
+
+        <Box border={1} className="ProyectBox">
+          <Card className="ProyectCard" sx={{ maxWidth: 500 }}>
+            <CardHeader title="Lolo" subheader="june 20, 2024" />
+            <CardMedia
+              component="img"
+              height="185"
+              image={proyect6Image}
+              alt="PernStackImage"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Lolo - Minimarket - Tienda Digital
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                "Lolo - Minimarket" es una plataforma de comercio electrónico
+                diseñada para ofrecer una experiencia de compra online fluida y
+                eficiente. Este proyecto fue desarrollado utilizando las
+                tecnologías más avanzadas, como React para el frontend y Node.js
+                para el backend, asegurando una interfaz de usuario moderna y
+                una gestión robusta del servidor.
+              </Typography>
+              <br></br>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                React
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Material-UI
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                CSS
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Javascript
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                NODE JS
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Mongo DB
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Render
+              </Button>
+            </CardContent>
+            <CardActions>
+              <GitHubIcon size="small">Share</GitHubIcon>
+              <Button disabled variant="outlined" size="small">
+                {" "}
+                Code
+              </Button>
+              <Button
+                onClick={handleCodeButtonClick6}
+                variant="outlined"
+                size="small"
+              >
+                Live
+              </Button>
             </CardActions>
           </Card>
           <Card className="ProyectCard" sx={{ maxWidth: 500 }}>
@@ -238,21 +457,60 @@ export default function Proyects() {
                 digitales memorables.
               </Typography>
               <br></br>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">React</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Material-UI</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">CSS</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">Javascript</Button>
-              <Button sx={{ml:1,mr:1}} color="secondary"  size="small" variant="text">HTML</Button>
-
-
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                React
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Material-UI
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                CSS
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                Javascript
+              </Button>
+              <Button
+                sx={{ ml: 1, mr: 1 }}
+                color="secondary"
+                size="small"
+                variant="text"
+              >
+                HTML
+              </Button>
             </CardContent>
             <CardActions>
               <GitHubIcon size="small">Share</GitHubIcon>
-              <Button variant="outlined" onClick={handleCodeButtonClick4} size="small">
+              <Button
+                variant="outlined"
+                onClick={handleCodeButtonClick4}
+                size="small"
+              >
                 {" "}
                 Code
               </Button>
-              <Button variant="outlined" size="small">Live</Button>
+              <Button variant="outlined" size="small">
+                Live
+              </Button>
             </CardActions>
           </Card>
         </Box>

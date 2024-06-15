@@ -123,7 +123,7 @@ export default function Homepage() {
                   DataBase
                 </Typography>
                 <Typography className="contentskills" variant="h7">
-                  PostgreSQL , FireBase
+                  PostgreSQL , FireBase , Mongo DB
                 </Typography>
               </Box>
             </Box>
