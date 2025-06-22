@@ -13,6 +13,8 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf"; // ✅ Asegúrate que este path sea correcto
 
 export default function Hero6() {
   const theme = useTheme();
@@ -68,6 +70,29 @@ export default function Hero6() {
           </Button>
         </Stack>
 
+        <Button
+          href={pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Gianfranco_Montivero_CV.pdf"
+          variant="text"
+          color="primary"
+          startIcon={<FileDownloadOutlinedIcon />}
+          sx={{
+            mt: 2,
+            px: 4,
+            py: 1.3,
+            fontWeight: 500,
+            borderRadius: "30px",
+            "&:hover": {
+              backgroundColor: theme.palette.primary.light,
+              color: "#fff",
+            },
+          }}
+        >
+          Descargar CV
+        </Button>
+
         <Stack direction="row" spacing={2}>
           <Tooltip title="GitHub">
             <IconButton
@@ -93,8 +118,6 @@ export default function Hero6() {
           Email: montiverogianfranco2709@gmail.com · Ubicación: Argentina ·
           GitHub activo
         </Typography>
-
-        
       </Stack>
     </Box>
   );

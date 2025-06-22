@@ -52,6 +52,7 @@ export default function Hero2({ power }) {
 
   return (
     <Box
+      id="projects"
       sx={{
         minHeight: "100vh",
         backgroundImage: backgroundVariants[power] || backgroundVariants.base,

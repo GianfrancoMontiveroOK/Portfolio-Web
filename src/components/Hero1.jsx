@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import lay1 from "../images/background33.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero1({ power }) {
   const theme = useTheme();
@@ -27,7 +28,11 @@ export default function Hero1({ power }) {
     ultraInstinct: `linear-gradient(to bottom, #00e5ff55, #001f2fcc), url(${lay1})`,
     base: `linear-gradient(to bottom, #00FFC855, #1e1e1ecc), url(${lay1})`,
   };
+  const navigate = useNavigate();
 
+  const handleGoToProjects = () => {
+    navigate("/projects");
+  };
   return (
     <Box
       sx={{
@@ -101,7 +106,27 @@ export default function Hero1({ power }) {
                   },
                 }}
               >
-                Ver proyectos destacados
+                Saber Mas
+              </Button>
+              <Button
+                onClick={handleGoToProjects}
+                variant="contained"
+                size="large"
+                color="primary"
+                sx={{
+                  px: 4,
+                  py: 1.5,
+                  fontWeight: 600,
+                  borderRadius: "30px",
+                  fontSize: "1rem",
+                  boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    boxShadow: `0 0 18px ${theme.palette.primary.main}`,
+                  },
+                }}
+              >
+                Proyectos
               </Button>
             </Stack>
           </Grid>

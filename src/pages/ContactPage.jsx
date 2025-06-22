@@ -17,6 +17,8 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined"; // ✅ Agregado
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf"; // ✅ Asegúrate de que el archivo esté aquí
 
 export default function Contacto() {
   const theme = useTheme();
@@ -59,6 +61,7 @@ export default function Contacto() {
       }}
     >
       <Grid container spacing={6} alignItems="center">
+        {/* COLUMNA IZQUIERDA */}
         <Grid item xs={12} md={6}>
           <Stack spacing={3}>
             <Typography
@@ -122,10 +125,35 @@ export default function Contacto() {
               Email: montiverogianfranco2709@gmail.com <br />
               Ubicación: Argentina – disponible para trabajar de forma remota.
             </Typography>
+
+            {/* ✅ Botón para descargar CV */}
+            <Button
+              href={pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Gianfranco_Montivero_CV.pdf"
+              variant="outlined"
+              color="primary"
+              startIcon={<FileDownloadOutlinedIcon />}
+              sx={{
+                mt: 2,
+                px: 4,
+                py: 1.5,
+                borderRadius: "30px",
+                fontWeight: 600,
+                textTransform: "none",
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.main,
+                  color: "#fff",
+                },
+              }}
+            >
+              Descargar CV
+            </Button>
           </Stack>
         </Grid>
 
-        {/* FORMULARIO */}
+        {/* COLUMNA DERECHA - FORMULARIO */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={6}
