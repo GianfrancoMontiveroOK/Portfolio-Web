@@ -66,11 +66,11 @@ export default function Navbar() {
   const drawerContent = (
     <Box sx={{ width: 240 }} role="presentation">
       <List>
-        {["Inicio", "Proyectos", "Contacto"].map((text, index) => (
+        {["Inicio", "Proyectos", "Contacto", "Activos"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton
               component="a"
-              href={["#", "#projects", "#contact"][index]}
+              href={["#", "#projects", "#contact", "#activos"][index]}
               onClick={() => setDrawerOpen(false)}
             >
               <ListItemText primary={text} />
@@ -112,7 +112,7 @@ export default function Navbar() {
   return (
     <>
       <AppBar
-        position="sticky"
+        position="fixed"
         elevation={4}
         sx={{
           backgroundColor: "#121212dd",
@@ -133,6 +133,9 @@ export default function Navbar() {
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
               <Button color="inherit" href="#">
                 Inicio
+              </Button>
+              <Button color="inherit" href="#activos">
+                Activos
               </Button>
               <Button color="inherit" href="#projects">
                 Proyectos

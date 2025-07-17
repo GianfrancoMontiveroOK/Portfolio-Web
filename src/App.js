@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/Homepage";
 import ProjectsPage from "./pages/Proyects";
 import ContactPage from "./pages/ContactPage";
+import ActivosPage from "./pages/ActivosPage";
 // Crear el contexto
 export const GlobalStateContext = createContext();
 
@@ -91,6 +92,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/activos" element={<ActivosPage />} />
           </Routes>
         </HashRouter>
       </ThemeProvider>
