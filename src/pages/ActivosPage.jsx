@@ -23,7 +23,7 @@ const proyectos = [
     ingreso: "$320/mo USD",
     descripcion:
       "Suite digital para alojamientos turísticos. Permite gestionar reservas, automatizar tareas y centralizar operaciones en una sola plataforma. Actualmente operando en 4 hoteles.",
-    link: "https://ubika.app",
+    link: "https://ubika.site",
     estado: "Activo",
   },
   {
@@ -41,7 +41,7 @@ const proyectos = [
     ingreso: "$14/mo USD",
     descripcion:
       "Plataforma que conecta propiedades de alta gama en Mendoza con compradores internacionales. Enfocado en ofrecer asesoramiento y oportunidades únicas en bienes raíces.",
-    link: "https://andesconnections.com",
+    link: "https://andesconnections.net",
     estado: "Activo",
   },
 ];
