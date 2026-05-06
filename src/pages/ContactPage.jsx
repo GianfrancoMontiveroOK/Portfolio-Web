@@ -153,66 +153,7 @@ export default function Contacto() {
           </Stack>
         </Grid>
 
-        {/* COLUMNA DERECHA - FORMULARIO */}
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={6}
-            sx={{
-              p: 4,
-              borderRadius: 4,
-              backdropFilter: "blur(6px)",
-              background:
-                theme.palette.mode === "dark"
-                  ? "#ffffff08"
-                  : "rgba(255,255,255,0.7)",
-              boxShadow: `0 0 25px ${theme.palette.primary.main}22`,
-            }}
-          >
-            <form onSubmit={handleSubmit}>
-              <Stack spacing={3}>
-                <TextField
-                  label="Tu nombre"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  variant="outlined"
-                  fullWidth
-                  required
-                />
-                <TextField
-                  label="Tu correo"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  variant="outlined"
-                  type="email"
-                  fullWidth
-                  required
-                />
-                <TextField
-                  label="Mensaje"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  variant="outlined"
-                  fullWidth
-                  required
-                  multiline
-                  rows={4}
-                />
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  sx={{ borderRadius: "30px", fontWeight: 600 }}
-                >
-                  Enviar mensaje
-                </Button>
-              </Stack>
-            </form>
-          </Paper>
-        </Grid>
+       
       </Grid>
     </Box>
   );
