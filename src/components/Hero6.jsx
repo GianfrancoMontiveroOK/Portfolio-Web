@@ -27,22 +27,21 @@ export default function Hero6() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        minHeight: "80vh",
+        minHeight: { xs: "auto", md: "80vh" },
         bgcolor: theme.palette.background.paper,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         px: { xs: 2, sm: 4 },
-        py: 10,
-        scrollSnapAlign: "start",
+        py: { xs: 8, sm: 10 },
         borderTop: `1px solid ${theme.palette.divider}`,
         "&::before": {
           content: '""',
           position: "absolute",
-          width: 360,
-          height: 360,
+          width: { xs: 260, sm: 360 },
+          height: { xs: 260, sm: 360 },
           borderRadius: "50%",
-          top: -160,
+          top: { xs: -120, sm: -160 },
           left: "50%",
           transform: "translateX(-50%)",
           background: `${theme.palette.primary.main}14`,
@@ -52,23 +51,37 @@ export default function Hero6() {
       }}
     >
       <Stack
-        spacing={4}
+        spacing={{ xs: 3, sm: 4 }}
         alignItems="center"
         textAlign="center"
         sx={{
           position: "relative",
           zIndex: 1,
+          width: "100%",
           maxWidth: 860,
           mx: "auto",
         }}
       >
         <Chip
-          icon={<WorkOutlineRoundedIcon />}
-          label="Disponible para roles técnicos, producto y liderazgo"
+          icon={!isMobile ? <WorkOutlineRoundedIcon /> : undefined}
+          label={
+            isMobile
+              ? "Disponible para roles técnicos"
+              : "Disponible para roles técnicos, producto y liderazgo"
+          }
           color="primary"
           sx={{
+            maxWidth: "100%",
+            height: "auto",
             fontWeight: 700,
-            px: 1,
+            px: { xs: 0.5, sm: 1 },
+            py: { xs: 0.8, sm: 0 },
+            "& .MuiChip-label": {
+              whiteSpace: "normal",
+              textAlign: "center",
+              lineHeight: 1.3,
+              px: { xs: 1.2, sm: 1.5 },
+            },
             "& .MuiChip-icon": {
               color: "#fff",
             },
@@ -81,7 +94,14 @@ export default function Hero6() {
           color="primary"
           sx={{
             fontFamily: "'Red Hat Display', sans-serif",
-            lineHeight: 1.1,
+            lineHeight: 1.12,
+            maxWidth: 760,
+            mx: "auto",
+            fontSize: {
+              xs: "2rem",
+              sm: "2.5rem",
+              md: "3rem",
+            },
           }}
         >
           ¿Construimos sistemas que puedan crecer con orden?
@@ -90,9 +110,11 @@ export default function Hero6() {
         <Typography
           color="text.secondary"
           sx={{
+            width: "100%",
             maxWidth: 720,
-            fontSize: { xs: "1rem", sm: "1.12rem" },
-            lineHeight: 1.8,
+            fontSize: { xs: "0.98rem", sm: "1.12rem" },
+            lineHeight: { xs: 1.65, sm: 1.8 },
+            px: { xs: 0.5, sm: 0 },
           }}
         >
           Me interesa sumarme a equipos donde pueda aportar desarrollo full
@@ -102,26 +124,30 @@ export default function Hero6() {
         </Typography>
 
         <Stack
-          direction={isMobile ? "column" : "row"}
+          direction={{ xs: "column", sm: "row" }}
           spacing={2}
           alignItems="center"
           justifyContent="center"
-          sx={{ width: "100%" }}
+          sx={{
+            width: "100%",
+            maxWidth: { xs: 340, sm: "none" },
+          }}
         >
           <Button
             variant="contained"
             color="primary"
             href="https://wa.me/542604206967"
             target="_blank"
+            rel="noopener noreferrer"
             startIcon={<WhatsAppIcon />}
             sx={{
-              width: isMobile ? "100%" : "auto",
-              maxWidth: isMobile ? 320 : "none",
-              px: 4,
+              width: { xs: "100%", sm: "auto" },
+              px: { xs: 3, sm: 4 },
               py: 1.5,
               borderRadius: "30px",
               fontWeight: 700,
               textTransform: "none",
+              whiteSpace: "nowrap",
               boxShadow: `0 10px 22px ${theme.palette.primary.main}33`,
               "&:hover": {
                 transform: "translateY(-2px)",
@@ -129,7 +155,7 @@ export default function Hero6() {
               },
             }}
           >
-            Escribirme por WhatsApp
+            WhatsApp
           </Button>
 
           <Button
@@ -138,13 +164,13 @@ export default function Hero6() {
             href="mailto:montiverogianfranco2709@gmail.com"
             startIcon={<EmailIcon />}
             sx={{
-              width: isMobile ? "100%" : "auto",
-              maxWidth: isMobile ? 320 : "none",
-              px: 4,
+              width: { xs: "100%", sm: "auto" },
+              px: { xs: 3, sm: 4 },
               py: 1.5,
               borderRadius: "30px",
               fontWeight: 700,
               textTransform: "none",
+              whiteSpace: "nowrap",
             }}
           >
             Enviar email
@@ -160,7 +186,7 @@ export default function Hero6() {
           color="primary"
           startIcon={<FileDownloadOutlinedIcon />}
           sx={{
-            px: 4,
+            px: { xs: 2.5, sm: 4 },
             py: 1.3,
             fontWeight: 700,
             borderRadius: "30px",
@@ -173,7 +199,7 @@ export default function Hero6() {
           Descargar CV
         </Button>
 
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} justifyContent="center">
           <Tooltip title="GitHub">
             <IconButton
               color="primary"
@@ -187,7 +213,7 @@ export default function Hero6() {
                 },
               }}
             >
-              <GitHubIcon fontSize="large" />
+              <GitHubIcon fontSize={isMobile ? "medium" : "large"} />
             </IconButton>
           </Tooltip>
 
@@ -204,7 +230,7 @@ export default function Hero6() {
                 },
               }}
             >
-              <LinkedInIcon fontSize="large" />
+              <LinkedInIcon fontSize={isMobile ? "medium" : "large"} />
             </IconButton>
           </Tooltip>
         </Stack>
@@ -213,11 +239,23 @@ export default function Hero6() {
           variant="body2"
           color="text.secondary"
           sx={{
+            width: "100%",
+            maxWidth: 680,
             lineHeight: 1.7,
+            fontSize: { xs: "0.82rem", sm: "0.875rem" },
+            wordBreak: "break-word",
+            px: { xs: 1, sm: 0 },
           }}
         >
-          Email: montiverogianfranco2709@gmail.com · Argentina · GitHub activo ·
-          Portfolio orientado a producto, ingeniería y operación
+          Email: montiverogianfranco2709@gmail.com
+          <Box component="span" sx={{ display: { xs: "block", sm: "inline" } }}>
+            {" "}
+            · Argentina · GitHub activo
+          </Box>
+          <Box component="span" sx={{ display: { xs: "block", sm: "inline" } }}>
+            {" "}
+            · Portfolio orientado a producto, ingeniería y operación
+          </Box>
         </Typography>
       </Stack>
     </Box>
