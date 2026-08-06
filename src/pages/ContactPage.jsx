@@ -1,160 +1,210 @@
 import React, { useState } from "react";
-import axios from "axios";
 import {
+  Alert,
   Box,
-  Typography,
-  TextField,
   Button,
+  Container,
   Grid,
-  Paper,
-  Stack,
   IconButton,
+  Paper,
+  Snackbar,
+  Stack,
+  TextField,
   Tooltip,
-  useTheme,
-  useMediaQuery,
+  Typography,
 } from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import EmailIcon from "@mui/icons-material/Email";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined"; // ✅ Agregado
-import pdf from "../cv/Gianfranco_Montivero_CV.pdf"; // ✅ Asegúrate de que el archivo esté aquí
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Link } from "react-router-dom";
 
-export default function Contacto() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf";
+import { profile } from "../data/portfolioData";
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+const initialForm = { name: "", email: "", company: "", message: "" };
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+export default function ContactPage() {
+  const [formData, setFormData] = useState(initialForm);
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const subject = `Contacto desde portfolio${formData.company ? ` — ${formData.company}` : ""}`;
+    const body = [
+      `Nombre: ${formData.name}`,
+      `Email: ${formData.email}`,
+      formData.company ? `Empresa: ${formData.company}` : null,
+      "",
+      formData.message,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const copyEmail = async () => {
     try {
-      await axios.post(
-        "https://www.api.ubika.site/api/portfoliocontact",
-        formData
-      );
-      alert("Mensaje enviado con éxito 🚀");
-      setFormData({ name: "", email: "", message: "" });
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
     } catch (error) {
-      console.error("Error al enviar mensaje:", error);
-      alert("Ocurrió un error al enviar el mensaje. Intentalo más tarde.");
+      window.location.href = `mailto:${profile.email}`;
     }
   };
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        scrollSnapAlign: "start",
-        px: { xs: 2, sm: 4, md: 10 },
-        py: { xs: 8, sm: 12 },
-        bgcolor: theme.palette.background.default,
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      <Grid container spacing={6} alignItems="center">
-        {/* COLUMNA IZQUIERDA */}
-        <Grid item xs={12} md={6}>
-          <Stack spacing={3}>
-            <Typography
-              variant={isMobile ? "h4" : "h3"}
-              fontWeight="bold"
-              color="primary"
-            >
-              Hablemos de tu próximo proyecto
+    <Box component="main" sx={{ pt: { xs: 13, md: 15 }, pb: { xs: 8, md: 12 } }}>
+      <Container maxWidth="lg">
+        <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} sx={{ mb: 3, px: 0 }}>
+          Volver al inicio
+        </Button>
+
+        <Grid container spacing={{ xs: 5, md: 7 }} alignItems="flex-start">
+          <Grid item xs={12} md={5}>
+            <Typography color="primary.main" fontWeight={800} variant="overline">
+              Contacto laboral
+            </Typography>
+            <Typography component="h1" variant="h2" sx={{ mt: 1, fontSize: { xs: "2.5rem", md: "3.8rem" } }}>
+              Conversemos sobre el puesto y el problema a resolver.
+            </Typography>
+            <Typography color="text.secondary" sx={{ mt: 2.5, lineHeight: 1.75, fontSize: "1.08rem" }}>
+              Estoy disponible para procesos de selección Full Stack JavaScript, Frontend React o Backend Node.js.
+              Puedo ampliar decisiones técnicas, proyectos y responsabilidades en una entrevista.
             </Typography>
 
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ maxWidth: 600 }}
-            >
-              Ya sea que necesites una web para tu negocio, integrar sistemas,
-              automatizar procesos o lanzar tu primera idea digital, estoy listo
-              para ayudarte a hacerlo real. Dejá tu mensaje y te respondo lo
-              antes posible.
-            </Typography>
+            <Paper variant="outlined" sx={{ p: 3, mt: 4, borderColor: "rgba(255,255,255,0.09)" }}>
+              <Typography variant="body2" color="text.secondary">
+                Email
+              </Typography>
+              <Stack direction="row" alignItems="center" justifyContent="space-between" gap={1} mt={0.5}>
+                <Typography fontWeight={700} sx={{ overflowWrap: "anywhere" }}>
+                  {profile.email}
+                </Typography>
+                <Tooltip title="Copiar email">
+                  <IconButton onClick={copyEmail} color="primary" aria-label="Copiar email">
+                    <ContentCopyRoundedIcon />
+                  </IconButton>
+                </Tooltip>
+              </Stack>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+                {profile.location}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                {profile.availability}
+              </Typography>
+            </Paper>
 
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={1} mt={2}>
               <Tooltip title="WhatsApp">
-                <IconButton
-                  color="primary"
-                  href="https://wa.me/542604206967"
-                  target="_blank"
-                >
-                  <WhatsAppIcon fontSize="large" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Email">
-                <IconButton
-                  color="primary"
-                  href="mailto:montiverogianfranco2709@gmail.com"
-                >
-                  <EmailIcon fontSize="large" />
+                <IconButton href={profile.whatsapp} target="_blank" rel="noopener noreferrer" color="primary">
+                  <WhatsAppIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="LinkedIn">
-                <IconButton
-                  color="primary"
-                  href="https://www.linkedin.com/in/gianfranco-montivero-37058821b/"
-                  target="_blank"
-                >
-                  <LinkedInIcon fontSize="large" />
+                <IconButton href={profile.linkedin} target="_blank" rel="noopener noreferrer" color="primary">
+                  <LinkedInIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="GitHub">
-                <IconButton
-                  color="primary"
-                  href="https://github.com/GianfrancoMontiveroOK"
-                  target="_blank"
-                >
-                  <GitHubIcon fontSize="large" />
+                <IconButton href={profile.github} target="_blank" rel="noopener noreferrer" color="primary">
+                  <GitHubIcon />
                 </IconButton>
               </Tooltip>
             </Stack>
 
-            <Typography variant="body2" color="text.secondary" mt={2}>
-              Email: montiverogianfranco2709@gmail.com <br />
-              Ubicación: Argentina – disponible para trabajar de forma remota.
-            </Typography>
-
-            {/* ✅ Botón para descargar CV */}
             <Button
               href={pdf}
-              target="_blank"
-              rel="noopener noreferrer"
               download="Gianfranco_Montivero_CV.pdf"
               variant="outlined"
-              color="primary"
-              startIcon={<FileDownloadOutlinedIcon />}
-              sx={{
-                mt: 2,
-                px: 4,
-                py: 1.5,
-                borderRadius: "30px",
-                fontWeight: 600,
-                textTransform: "none",
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.main,
-                  color: "#fff",
-                },
-              }}
+              startIcon={<DownloadRoundedIcon />}
+              sx={{ mt: 2.5 }}
             >
               Descargar CV
             </Button>
-          </Stack>
-        </Grid>
+          </Grid>
 
-       
-      </Grid>
+          <Grid item xs={12} md={7}>
+            <Paper component="form" onSubmit={handleSubmit} sx={{ p: { xs: 3, sm: 4 } }}>
+              <Typography variant="h5" fontWeight={800}>
+                Preparar un correo
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1, lineHeight: 1.6 }}>
+                Al enviar se abrirá tu aplicación de correo con la información completada. Ningún dato se guarda en este sitio.
+              </Typography>
+
+              <Grid container spacing={2} sx={{ mt: 1 }}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    label="Nombre"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Empresa o proyecto"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Mensaje"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                    multiline
+                    minRows={6}
+                  />
+                </Grid>
+              </Grid>
+
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} mt={3}>
+                <Button type="submit" variant="contained" startIcon={<SendRoundedIcon />}>
+                  Abrir correo
+                </Button>
+                <Button href={`mailto:${profile.email}`} variant="text" startIcon={<EmailOutlinedIcon />}>
+                  Escribir directamente
+                </Button>
+              </Stack>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Snackbar open={copied} autoHideDuration={2500} onClose={() => setCopied(false)}>
+        <Alert severity="success" variant="filled" onClose={() => setCopied(false)}>
+          Email copiado
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

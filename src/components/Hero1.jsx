@@ -1,293 +1,133 @@
 import React from "react";
 import {
   Box,
-  Grid,
-  Typography,
   Button,
-  Stack,
-  useTheme,
-  useMediaQuery,
-  Container,
   Chip,
+  Container,
+  Grid,
+  Stack,
+  Typography,
 } from "@mui/material";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import WorkspacesRoundedIcon from "@mui/icons-material/WorkspacesRounded";
-import AccountTreeRoundedIcon from "@mui/icons-material/AccountTreeRounded";
-import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
-import lay1 from "../images/background33.jpg";
-import { useNavigate } from "react-router-dom";
-import { Fade, Slide } from "react-awesome-reveal";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
+import { Link } from "react-router-dom";
 
-export default function Hero1({ power }) {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+import heroBackground from "../images/background33.webp";
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf";
+import { profile } from "../data/portfolioData";
 
-  const scrollToProjects = () => {
-    const section = document.getElementById("projects");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const backgroundStyles = {
-    kaio: `linear-gradient(to bottom,rgba(255, 60, 0, 0.31), #000000dd), url(${lay1})`,
-    mystic: `linear-gradient(to bottom, #8a2be255, #1a0033dd), url(${lay1})`,
-    ultraInstinct: `linear-gradient(to bottom, #00e5ff55, #001f2fdd), url(${lay1})`,
-    base: `linear-gradient(to bottom, #00FFC855, #1e1e1edd), url(${lay1})`,
-  };
-
-  const navigate = useNavigate();
-
-  const handleGoToProjects = () => {
-    navigate("/projects");
-  };
-
-  const chips = [
-    "Full Stack",
-    "Producto",
-    "Procesos",
-    "Escalabilidad",
-    "Operación",
-  ];
-
+export default function Hero1() {
   return (
     <Box
+      component="section"
       sx={{
-        position: "relative",
-        overflow: "hidden",
-        backgroundImage: backgroundStyles[power] || backgroundStyles.base,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         minHeight: "100vh",
+        pt: { xs: 14, md: 16 },
+        pb: { xs: 8, md: 10 },
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-        scrollSnapAlign: "start",
-        px: 2,
-        textAlign: "center",
-        "&::before": {
+        position: "relative",
+        overflow: "hidden",
+        backgroundImage: `linear-gradient(90deg, rgba(8,16,15,0.98) 0%, rgba(8,16,15,0.9) 50%, rgba(8,16,15,0.56) 100%), url(${heroBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        "&::after": {
           content: '""',
           position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 45%)",
-          pointerEvents: "none",
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          right: -160,
+          bottom: -220,
+          bgcolor: "primary.main",
+          opacity: 0.09,
+          filter: "blur(60px)",
         },
       }}
     >
-      <Container
-        maxWidth="lg"
-        sx={{
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12}>
-            <Fade triggerOnce duration={800}>
-              <Stack
-                direction="row"
-                spacing={1}
-                justifyContent="center"
-                flexWrap="wrap"
-                useFlexGap
-                sx={{ mb: 3 }}
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Grid container spacing={6} alignItems="center">
+          <Grid item xs={12} md={8}>
+            <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap mb={3}>
+              <Chip label="React" size="small" />
+              <Chip label="Node.js" size="small" />
+              <Chip label="MongoDB" size="small" />
+              <Chip label="APIs REST" size="small" />
+            </Stack>
+
+            <Typography
+              component="p"
+              color="primary.main"
+              fontWeight={800}
+              sx={{ mb: 1.5, letterSpacing: "0.08em", textTransform: "uppercase" }}
+            >
+              {profile.role}
+            </Typography>
+
+            <Typography
+              component="h1"
+              variant="h1"
+              sx={{
+                fontSize: { xs: "2.65rem", sm: "3.6rem", md: "5rem" },
+                lineHeight: 0.98,
+                maxWidth: 900,
+              }}
+            >
+              Desarrollo productos digitales que resuelven trabajo real.
+            </Typography>
+
+            <Typography
+              color="text.secondary"
+              sx={{
+                mt: 3,
+                fontSize: { xs: "1.05rem", md: "1.25rem" },
+                lineHeight: 1.75,
+                maxWidth: 760,
+              }}
+            >
+              Soy Gianfranco Montivero. Construyo frontend, backend y bases de datos para
+              sistemas administrativos, plataformas SaaS y herramientas de operación.
+              Trabajo desde el relevamiento del problema hasta el despliegue, soporte y mejora continua.
+            </Typography>
+
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} mt={4}>
+              <Button
+                component={Link}
+                to="/projects"
+                variant="contained"
+                size="large"
+                endIcon={<ArrowForwardRoundedIcon />}
               >
-                {chips.map((chip) => (
-                  <Chip
-                    key={chip}
-                    label={chip}
-                    size={isMobile ? "small" : "medium"}
-                    sx={{
-                      color: "#fff",
-                      border: "1px solid rgba(255,255,255,0.28)",
-                      backgroundColor: "rgba(255,255,255,0.08)",
-                      backdropFilter: "blur(8px)",
-                      fontWeight: 600,
-                    }}
-                  />
-                ))}
+                Ver casos reales
+              </Button>
+              <Button
+                href={pdf}
+                download="Gianfranco_Montivero_CV.pdf"
+                variant="outlined"
+                size="large"
+                startIcon={<DownloadRoundedIcon />}
+              >
+                Descargar CV
+              </Button>
+            </Stack>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={{ xs: 1.2, sm: 3 }}
+              mt={4}
+              color="text.secondary"
+            >
+              <Stack direction="row" spacing={1} alignItems="center">
+                <LocationOnOutlinedIcon color="primary" fontSize="small" />
+                <Typography variant="body2">{profile.location}</Typography>
               </Stack>
-
-              <Typography
-                variant={isMobile ? "h4" : "h2"}
-                fontWeight="bold"
-                sx={{
-                  fontFamily: "'Red Hat Display', sans-serif",
-                  color: "#fff",
-                  textShadow: "0 0 18px rgba(0,0,0,0.55)",
-                  lineHeight: 1.05,
-                  maxWidth: "980px",
-                  mx: "auto",
-                }}
-              >
-                Construyo sistemas escalables conectando ingeniería, producto y
-                operación.
-              </Typography>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  mt: 3,
-                  color: "#f0f0f0",
-                  fontWeight: 400,
-                  fontSize: isMobile ? "1rem" : "1.25rem",
-                  lineHeight: 1.7,
-                  maxWidth: "820px",
-                  mx: "auto",
-                }}
-              >
-                Soy Gianfranco Montivero, desarrollador full stack con
-                experiencia creando plataformas reales para negocios:
-                dashboards, pagos, reservas, automatizaciones, procesos internos
-                e integraciones críticas.
-              </Typography>
-
-              <Typography
-                sx={{
-                  mt: 2,
-                  color: "rgba(255,255,255,0.78)",
-                  fontSize: isMobile ? "0.95rem" : "1.05rem",
-                  lineHeight: 1.7,
-                  maxWidth: "760px",
-                  mx: "auto",
-                }}
-              >
-                Mi foco está en ordenar complejidad, transformar necesidades de
-                negocio en soluciones técnicas claras y construir productos que
-                puedan crecer sin perder control operativo.
-              </Typography>
-
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                spacing={2}
-                justifyContent="center"
-                alignItems="center"
-                sx={{ mt: 4 }}
-              >
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  alignItems="center"
-                  sx={{
-                    px: 2,
-                    py: 1,
-                    borderRadius: "999px",
-                    backgroundColor: "rgba(0,0,0,0.28)",
-                    border: "1px solid rgba(255,255,255,0.14)",
-                    color: "rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <WorkspacesRoundedIcon fontSize="small" />
-                  <Typography variant="body2" fontWeight={600}>
-                    Liderazgo técnico
-                  </Typography>
-                </Stack>
-
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  alignItems="center"
-                  sx={{
-                    px: 2,
-                    py: 1,
-                    borderRadius: "999px",
-                    backgroundColor: "rgba(0,0,0,0.28)",
-                    border: "1px solid rgba(255,255,255,0.14)",
-                    color: "rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <AccountTreeRoundedIcon fontSize="small" />
-                  <Typography variant="body2" fontWeight={600}>
-                    Arquitectura modular
-                  </Typography>
-                </Stack>
-
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  alignItems="center"
-                  sx={{
-                    px: 2,
-                    py: 1,
-                    borderRadius: "999px",
-                    backgroundColor: "rgba(0,0,0,0.28)",
-                    border: "1px solid rgba(255,255,255,0.14)",
-                    color: "rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <TrendingUpRoundedIcon fontSize="small" />
-                  <Typography variant="body2" fontWeight={600}>
-                    Visión de escala
-                  </Typography>
-                </Stack>
+              <Stack direction="row" spacing={1} alignItems="center">
+                <WorkOutlineRoundedIcon color="primary" fontSize="small" />
+                <Typography variant="body2">{profile.availability}</Typography>
               </Stack>
-            </Fade>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Slide direction="up" triggerOnce delay={300} duration={600}>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-                sx={{ mt: 3 }}
-              >
-                <Button
-                  onClick={scrollToProjects}
-                  variant="contained"
-                  size="large"
-                  color="primary"
-                  endIcon={<ArrowDownwardIcon />}
-                  sx={{
-                    width: isMobile ? "100%" : "auto",
-                    maxWidth: isMobile ? 320 : "none",
-                    px: 4,
-                    py: 1.5,
-                    fontWeight: 700,
-                    borderRadius: "30px",
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
-                    transition: "all 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-2px)",
-                      boxShadow: `0 0 22px ${theme.palette.primary.main}`,
-                    },
-                  }}
-                >
-                  Ver casos de liderazgo técnico
-                </Button>
-
-                <Button
-                  onClick={handleGoToProjects}
-                  variant="outlined"
-                  size="large"
-                  sx={{
-                    width: isMobile ? "100%" : "auto",
-                    maxWidth: isMobile ? 320 : "none",
-                    px: 4,
-                    py: 1.5,
-                    fontWeight: 700,
-                    borderRadius: "30px",
-                    fontSize: "1rem",
-                    textTransform: "none",
-                    color: "#fff",
-                    borderColor: "rgba(255,255,255,0.55)",
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(8px)",
-                    transition: "all 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-2px)",
-                      borderColor: "#fff",
-                      backgroundColor: "rgba(255,255,255,0.14)",
-                    },
-                  }}
-                >
-                  Explorar proyectos
-                </Button>
-              </Stack>
-            </Slide>
+            </Stack>
           </Grid>
         </Grid>
       </Container>

@@ -1,189 +1,183 @@
 import React, { useContext, useState } from "react";
 import {
   AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
   Box,
   Button,
-  useMediaQuery,
-  useTheme,
+  Divider,
   Drawer,
+  IconButton,
   List,
-  ListItem,
   ListItemButton,
   ListItemText,
-  Divider,
+  Stack,
+  Toolbar,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment"; // Kaio
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"; // Mystic
-import BoltIcon from "@mui/icons-material/Bolt"; // Ultra Instinct
-import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople"; // Base
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
+import { Link, useLocation } from "react-router-dom";
 
 import { GlobalStateContext } from "../App";
+import pdf from "../cv/Gianfranco_Montivero_CV.pdf";
+
+const navigation = [
+  { label: "Inicio", path: "/" },
+  { label: "Proyectos", path: "/projects" },
+  { label: "Experiencia", path: "/activos" },
+  { label: "Contacto", path: "/contact" },
+];
+
+const accents = [
+  { id: "base", label: "Verde", color: "#37E6B0" },
+  { id: "kaio", label: "Naranja", color: "#FF7A45" },
+  { id: "mystic", label: "Violeta", color: "#A982FF" },
+  { id: "ultraInstinct", label: "Celeste", color: "#55D8FF" },
+];
 
 export default function Navbar() {
   const { power, setPower } = useContext(GlobalStateContext);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const location = useLocation();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const powers = [
-    {
-      id: "kaio",
-      icon: <LocalFireDepartmentIcon />,
-      label: "Kaio",
-      color: "#ff4d00",
-    },
-    {
-      id: "mystic",
-      icon: <AutoAwesomeIcon />,
-      label: "Místico",
-      color: "#8a2be2",
-    },
-    {
-      id: "ultraInstinct",
-      icon: <BoltIcon />,
-      label: "Ultra Instinct",
-      color: "#00e5ff",
-    },
-    {
-      id: "base",
-      icon: <EmojiPeopleIcon />,
-      label: "Base",
-      color: "#00FFC8",
-    },
-  ];
+  const closeDrawer = () => setDrawerOpen(false);
 
-  const handleSelect = (id) => {
-    setPower(id);
-    setDrawerOpen(false); // cierra drawer al cambiar
-  };
+  const navButton = (item, mobile = false) => (
+    <Button
+      key={item.path}
+      component={Link}
+      to={item.path}
+      onClick={closeDrawer}
+      color={location.pathname === item.path ? "primary" : "inherit"}
+      sx={{
+        justifyContent: mobile ? "flex-start" : "center",
+        width: mobile ? "100%" : "auto",
+        color:
+          location.pathname === item.path
+            ? "primary.main"
+            : mobile
+              ? "text.primary"
+              : "rgba(255,255,255,0.78)",
+      }}
+    >
+      {item.label}
+    </Button>
+  );
 
-  const drawerContent = (
-    <Box sx={{ width: 240 }} role="presentation">
-      <List>
-        {["Inicio", "Proyectos", "Contacto", "Activos"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton
-              component="a"
-              href={["#", "#projects", "#contact", "#activos"][index]}
-              onClick={() => setDrawerOpen(false)}
-            >
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 1,
-          p: 2,
-        }}
-      >
-        {powers.map((p) => (
+  const accentSelector = (
+    <Stack direction="row" spacing={0.5} alignItems="center">
+      {accents.map((accent) => (
+        <Tooltip title={`Acento ${accent.label}`} key={accent.id}>
           <IconButton
-            key={p.id}
+            aria-label={`Usar acento ${accent.label}`}
             size="small"
-            onClick={() => handleSelect(p.id)}
-            sx={{
-              color: power === p.id ? p.color : "#888",
-              transform: power === p.id ? "scale(1.3)" : "scale(1)",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                color: p.color,
-                filter: "drop-shadow(0 0 6px rgba(255,255,255,0.3))",
-              },
-            }}
+            onClick={() => setPower(accent.id)}
+            sx={{ p: 0.7 }}
           >
-            {p.icon}
+            <Box
+              sx={{
+                width: power === accent.id ? 13 : 10,
+                height: power === accent.id ? 13 : 10,
+                borderRadius: "50%",
+                bgcolor: accent.color,
+                boxShadow:
+                  power === accent.id ? `0 0 0 4px ${accent.color}22` : "none",
+                transition: "all 180ms ease",
+              }}
+            />
           </IconButton>
-        ))}
-      </Box>
-    </Box>
+        </Tooltip>
+      ))}
+    </Stack>
   );
 
   return (
     <>
       <AppBar
         position="fixed"
-        elevation={4}
+        elevation={0}
         sx={{
-          backgroundColor: "#121212dd",
-          backdropFilter: "blur(8px)",
-          transition: "background 0.3s",
+          bgcolor: "rgba(8,16,15,0.86)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(16px)",
         }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6" fontWeight={700}>
-            Gianfranco Montivero
-          </Typography>
+        <Toolbar sx={{ maxWidth: 1240, width: "100%", mx: "auto", minHeight: 72 }}>
+          <Box component={Link} to="/" sx={{ textDecoration: "none", flexGrow: 1 }}>
+            <Typography fontWeight={800} color="text.primary" lineHeight={1.1}>
+              Gianfranco Montivero
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              Full Stack JavaScript Developer
+            </Typography>
+          </Box>
 
           {isMobile ? (
-            <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
-              <MenuIcon />
+            <IconButton aria-label="Abrir navegación" onClick={() => setDrawerOpen(true)}>
+              <MenuRoundedIcon />
             </IconButton>
           ) : (
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <Button color="inherit" href="#">
-                Inicio
-              </Button>
-              <Button color="inherit" href="#activos">
-                Activos
-              </Button>
-              <Button color="inherit" href="#projects">
-                Proyectos
-              </Button>
-              <Button color="inherit" href="#contact">
-                Contacto
-              </Button>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  borderRadius: 4,
-                  px: 1,
-                  py: 0.5,
-                  bgcolor: "#222",
-                  gap: 1,
-                }}
+            <Stack direction="row" spacing={0.5} alignItems="center">
+              {navigation.map((item) => navButton(item))}
+              <Divider orientation="vertical" flexItem sx={{ mx: 1.5 }} />
+              {accentSelector}
+              <Button
+                href={pdf}
+                download="Gianfranco_Montivero_CV.pdf"
+                variant="contained"
+                startIcon={<DownloadRoundedIcon />}
+                sx={{ ml: 1.5 }}
               >
-                {powers.map((p) => (
-                  <IconButton
-                    key={p.id}
-                    size="small"
-                    onClick={() => handleSelect(p.id)}
-                    sx={{
-                      color: power === p.id ? p.color : "#888",
-                      transform: power === p.id ? "scale(1.3)" : "scale(1)",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        color: p.color,
-                        filter: "drop-shadow(0 0 6px rgba(255,255,255,0.3))",
-                      },
-                    }}
-                  >
-                    {p.icon}
-                  </IconButton>
-                ))}
-              </Box>
-            </Box>
+                CV
+              </Button>
+            </Stack>
           )}
         </Toolbar>
       </AppBar>
 
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      >
-        {drawerContent}
+      <Drawer anchor="right" open={drawerOpen} onClose={closeDrawer}>
+        <Box sx={{ width: 290, p: 2.5, minHeight: "100%", bgcolor: "background.paper" }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
+            <Typography fontWeight={800}>Navegación</Typography>
+            <IconButton aria-label="Cerrar navegación" onClick={closeDrawer}>
+              <CloseRoundedIcon />
+            </IconButton>
+          </Stack>
+          <List disablePadding>
+            {navigation.map((item) => (
+              <ListItemButton
+                key={item.path}
+                component={Link}
+                to={item.path}
+                selected={location.pathname === item.path}
+                onClick={closeDrawer}
+                sx={{ borderRadius: 2, mb: 0.5 }}
+              >
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            ))}
+          </List>
+          <Divider sx={{ my: 2 }} />
+          <Typography variant="caption" color="text.secondary">
+            Color de acento
+          </Typography>
+          <Box sx={{ mt: 1 }}>{accentSelector}</Box>
+          <Button
+            href={pdf}
+            download="Gianfranco_Montivero_CV.pdf"
+            variant="contained"
+            fullWidth
+            startIcon={<DownloadRoundedIcon />}
+            sx={{ mt: 3 }}
+          >
+            Descargar CV
+          </Button>
+        </Box>
       </Drawer>
     </>
   );
